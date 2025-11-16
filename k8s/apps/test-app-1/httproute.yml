@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   hostnames:
-    - example3.com
+    - app1.int.winning.wtf
   parentRefs:
     - name: eg    # same Gateway as before
   rules:
