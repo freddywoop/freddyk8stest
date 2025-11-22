@@ -7,12 +7,13 @@ spec:
   hostnames:
     - jellyfin.int.winning.wtf
   parentRefs:
-    - name: eg    # same Gateway as before
+    - name: eg
+      sectionName: https   # bind to your HTTPS listener
   rules:
     - matches:
         - path:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: jellyfin
+        - name: jellyfin    # must match Service name
           port: 80
