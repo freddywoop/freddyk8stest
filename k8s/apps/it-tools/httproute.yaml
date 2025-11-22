@@ -7,7 +7,7 @@ spec:
   parentRefs:
     - name: eg
   hostnames:
-    - "tools.int.winning.wtf"
+    - "atools.int.winning.wtf"
   rules:
     - matches:
         - path:
