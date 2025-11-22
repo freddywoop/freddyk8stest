@@ -6,8 +6,6 @@ metadata:
 spec:
   parentRefs:
     - name: eg
-      namespace: gateway
-      sectionName: https
   hostnames:
     - "tools.int.winning.wtf"
   rules:
