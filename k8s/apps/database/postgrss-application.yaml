@@ -19,6 +19,7 @@ spec:
           persistence:
             enabled: true
             size: 10Gi
+            storageClass: standard   # <- put it here inside helm.values
 
         auth:
           enablePostgresUser: true
