@@ -13,7 +13,7 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /pgadmin
+            value: /
       backendRefs:
         - name: pgadmin-pgadmin4    # matches Helm release service name
           port: 80
