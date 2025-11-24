@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: database
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    targetRevision: 16.3.0
+    helm:
+      releaseName: postgres
+      values: |
+        primary:
+          persistence:
+            enabled: true
+            size: 10Gi
+
+        auth:
+          enablePostgresUser: true
+          username: appuser
+          database: appdb
+          existingSecret: postgres-credentials
+          secretKeys:
+            adminPasswordKey: postgres-password
+            userPasswordKey: app-user-password
+
+        metrics:
+          enabled: false
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
