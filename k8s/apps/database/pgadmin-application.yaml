@@ -22,8 +22,7 @@ spec:
           type: ClusterIP
           port: 80
         persistentVolume:
-          enabled: true
-          size: 1Gi
+          enabled: false   # <- disabled storage
         ingress:
           enabled: false
   syncPolicy:
