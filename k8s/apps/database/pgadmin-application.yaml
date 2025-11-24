@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pgadmin
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: database
+  source:
+    repoURL: https://helm.runix.net
+    chart: pgadmin4
+    targetRevision: 1.50.0
+    helm:
+      releaseName: pgadmin
+      values: |
+        env:
+          email: admin@example.com
+        existingSecret: pgadmin-credentials
+        service:
+          type: ClusterIP
+          port: 80
+        persistentVolume:
+          enabled: true
+          size: 1Gi
+        ingress:
+          enabled: false
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
