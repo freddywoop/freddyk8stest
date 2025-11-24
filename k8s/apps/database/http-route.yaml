@@ -8,7 +8,7 @@ spec:
     - name: eg
       namespace: default
   hostnames:
-    - db.winning.wtf
+    - db.int.winning.wtf
   rules:
     - matches:
         - path:
