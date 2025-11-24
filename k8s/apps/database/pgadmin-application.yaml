@@ -16,7 +16,7 @@ spec:
       releaseName: pgadmin
       values: |
         env:
-          email: admin@example.com
+          email: admin@winning.wtf
         existingSecret: pgadmin-credentials
         service:
           type: ClusterIP
